@@ -60,6 +60,9 @@ graph TD
     H --> I[Git Repository]
 ```
 
+![Untitled diagram-2025-04-21-075440](https://github.com/user-attachments/assets/f7455466-74ea-4204-973a-932c95d97c3c)
+
+
 ## Services
 
 ### Core Infrastructure

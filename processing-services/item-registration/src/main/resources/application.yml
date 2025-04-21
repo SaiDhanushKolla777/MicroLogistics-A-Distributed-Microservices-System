@@ -1,0 +1,89 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: item-registration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/item_registration
+    username: postgres
+    password: postgres
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 20000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all
+      retries: 3
+      batch-size: 16384
+      buffer-memory: 33554432
+      properties:
+        delivery.timeout.ms: 120000
+        linger.ms: 5
+  cloud:
+    config:
+      enabled: false
+      fail-fast: false  # Set to true in production
+
+kafka:
+  topics:
+    item-registered: item-registered
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:password@localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  health:
+    circuitbreakers:
+      enabled: true
+
+logging:
+  level:
+    com.micrologistics: INFO
+    org.springframework.web: INFO
+    org.springframework.data: INFO
+    org.springframework.kafka: INFO
+
+info:
+  application:
+    name: ${spring.application.name}
+    description: Item Registration Service for MicroLogistics
+    version: 1.0.0

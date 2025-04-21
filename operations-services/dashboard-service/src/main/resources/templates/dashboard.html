@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MicroLogistics Dashboard</title>
+    <link rel="stylesheet" href="/static/css/main.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+    <script src="/static/js/charts.js"></script>
+</head>
+<body>
+<header>
+    <img src="/static/images/logo.png" alt="Logo" style="height:50px;vertical-align:middle;"/>
+    <h1>MicroLogistics Dashboard</h1>
+</header>
+<div class="container">
+    <h2>Item Flow Map</h2>
+    <canvas id="chart" width="800" height="320"></canvas>
+    <h2>Dashboard JSON</h2>
+    <pre id="dashboard-json">Loading...</pre>
+    <h2>Alerts</h2>
+    <div id="alerts">Loading...</div>
+</div>
+</body>
+</html>

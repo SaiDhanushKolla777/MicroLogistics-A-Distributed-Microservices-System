@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Alerts</title>
+    <link rel="stylesheet" href="/static/css/main.css"/>
+</head>
+<body>
+<header>
+    <h1>Operation Alerts</h1>
+</header>
+<div class="container">
+    <ul>
+        <li th:each="alert : ${alerts}">
+            <span th:text="${alert.level}"></span>:
+            <span th:text="${alert.message}"></span>
+            <span th:text="${alert.timestamp}"></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>System Metrics</title>
+    <link rel="stylesheet" href="/static/css/main.css"/>
+</head>
+<body>
+<header>
+    <h1>System Metrics</h1>
+</header>
+<div class="container">
+    <h2>Metrics Overview</h2>
+    <div th:each="metric : ${metrics}">
+        <strong th:text="${metric.metricName}"></strong>:
+        <span th:text="${metric.value}"></span> <span th:text="${metric.unit}"></span>
+        <br/>
+    </div>
+</div>
+</body>
+</html>

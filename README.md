@@ -270,9 +270,3 @@ Security Matrix:
    - Tests
    - Documentation
    - CHANGELOG update
-
-Code Standards:
-- Google Java Style
-- 90% Test Coverage
-- SonarQube Clean
-

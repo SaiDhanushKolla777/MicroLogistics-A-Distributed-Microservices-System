@@ -1,6 +1,3 @@
-Here's a comprehensive README.md for the MicroLogistics system:
-
-
 # MicroLogistics System
 
 A distributed microservices-based logistics management system implementing cloud-native patterns.
